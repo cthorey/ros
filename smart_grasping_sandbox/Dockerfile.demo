@@ -1,0 +1,6 @@
+FROM shadowrobot/smart_grasping_sandbox
+
+ENTRYPOINT [""]
+CMD ["bash"]
+
+EXPOSE 8080 8888 7681

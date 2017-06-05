@@ -1,6 +1,8 @@
-Last Config Dir: /root/.rviz
+Last Config Dir: /opt/ros/indigo/share/pr2_moveit_config/launch
 Last Image Dir: ""
 Recent Configs:
+  - /opt/ros/indigo/share/pr2_moveit_config/launch/moveit.rviz
+  - /opt/ros/indigo/share/rviz_visual_tools/launch/demo.rviz
   - /root/.rviz/default.rviz
   - /opt/ros/indigo/share/urdf_tutorial/urdf.rviz
   - /root/urdf_tutorial/src/urdf_tutorial/rviz/urdf.rviz

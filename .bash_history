@@ -512,3 +512,331 @@ rosrun opencv camera.py
 cd ..
 ls
 exit
+ls
+source /opt/ros/indigo/setup.bash 
+ls
+cd
+ls
+source /opt/ros/indigo/setup.bash 
+clear
+ls
+roslaunch pr2_moveit_config demo.launch
+exit
+source /opt/ros/indigo/setup.bash 
+ls
+cd
+ls
+roslaunch pr2_moveit_config demo.launch
+exit
+source /opt/ros/indigo/setup.bash 
+roslaunch pr2_moveit_config demo.launch
+gazebo
+exit
+gazebo
+exit
+gazebo
+exit
+gazebo
+exit
+gazebo
+exit
+ls
+cd
+ls
+gazebo
+exit
+cd
+ls
+gazebo
+exit
+gazebo
+exit
+gazebo
+exit
+gazebo
+exit
+source /opt/ros/indigo/setup.bash 
+ls
+cd
+l
+roslaunch pr2_moveit_config demo.launch
+apt-get install ros-indigo-moveit-pr2
+roslaunch pr2_moveit_config demo.launch
+exit
+ls
+cd
+apt-get install ros-indigo-moveit-pr2
+roslaunch pr2_moveit_config demo.launch
+docker run -it --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" moveit/moveit:kinetic-source
+exit
+ls
+cd
+ls
+git clone roslaunch pr2_moveit_config demo.launch
+exit
+clear
+cd
+ls
+source mybot_ws/devel/setup.bash 
+cd mybot_ws/
+ls
+./run_rviz.sh 
+exit
+ls
+cd
+ls
+source /opt/ros/indigo/setup.bash 
+ls
+cd moveit_tutorials/
+ls
+cd ..
+ls
+cd urdf_tutorial/
+ls
+cd ..
+ls
+cd moveit_tutorials/
+ls
+roscd moveit_tutorials/doc/pr2_tutorials/planning/scripts/
+ls
+catkin build
+cd doc/
+ls
+cd pr2_tutorials/
+ls
+cd planning/
+ls
+cd ..
+ls
+cd planning/
+ls
+catkin_make
+ls
+cd ..
+catkin_make
+ls
+cd ..
+ls
+cd
+ls
+cd moveit_tutorials/
+ls
+cd ..
+cd m
+cd mybot_ws/
+ls
+cd src/
+ls
+cd ..
+ls
+catkin_make
+ls
+./run_gazebo.sh 
+ls
+source devel/setup.bash 
+ls
+./run_gazebo.sh 
+exit
+rps
+ros
+ls
+exit
+source /opt/ros/indigo/setup.bash 
+cd
+roslaunch rviz_visual_tools demo.launch
+exit
+source /opt/ros/indigo/setup.bash 
+ls
+cd
+ls
+clear
+ls
+cd moveit_tutorials/
+sl
+ls
+cd ..
+ls
+apt-get install ros-indigo-moveit-pr2
+oslaunch pr2_moveit_config demo.launch
+roslaunch pr2_moveit_config demo.launch
+apt-get install ros-kinetic-rviz-visual-tools
+apt-get install ros-indigo-rviz-visual-tools
+roslaunch rviz_visual_tools demo_rviz.launch
+exit
+source /opt/ros/indigo/setup.bash 
+ls
+cd
+roslaunch pr2_moveit_config demo.launch
+apt-get install ros-indigo-rviz-visual-tools
+apt-get install ros-indigo-moveit-full-pr2
+source /opt/ros/indigo/setup.bash
+roslaunch pr2_moveit_config demo.launch
+ls
+cd docker/
+ls
+cd ..
+exit
+roscd moveit_tutorials/doc/pr2_tutorials/planning/scripts/]
+roscd moveit_tutorials/doc/pr2_tutorials/planning/scripts/
+ls
+cd
+ls
+rosrun moveit_tutorials move_group_python_interface_tutorial.py
+roscd moveit_tutorials/doc/pr2_tutorials/planning/scripts/
+clear
+ls
+clear
+sl
+ls
+clear
+ls
+clear
+ls
+roscd moveit_tutorials/doc/pr2_tutorials/planning/scripts/
+source /opt/ros/indigo/setup.bash 
+roscd moveit_tutorials/doc/pr2_tutorials/planning/scripts/
+cd /opt/ros/indigo/
+ls
+cd share/
+ls
+cd
+ls
+cd moveit_tutorials/
+ls
+roscd moveit_tutorials/doc/pr2_tutorials/planning/scripts/
+cd doc/pr2_tutorials/planning/scripts/
+ls
+chmod +x move_group_python_interface_tutorial.py
+roslaunch pr2_moveit_config demo.launch
+rosrun moveit_tutorials move_group_python_interface_tutorial.py
+ls
+dc ..
+cd
+ls
+cd moveit_tutorials/
+ls
+catkin_make
+ls
+cd ..
+ls
+rm -Rf moveit_tutorials/
+catkin_init_workspace moveit
+mkdir moveit
+cd moveit/
+ls
+catkin_init_workspace 
+ls
+mkdir src
+cd src/
+ls
+git clone https://github.com/ros-planning/moveit_tutorials.git
+cd ..
+rosdep install --from-paths . --ignore-src --rosdistro kinetic
+catkin build
+catkin_make
+ls
+rm CMakeLists.txt 
+ls
+catkin_make
+catkin build
+catkin_make
+ls
+cd ..
+ls
+rm -Rf moveit/
+ls
+apt-get install ros-indigo-moveit-full
+ls
+mkdir moveit_ws
+ls
+cd moveit_ws/
+ls
+mkdir src
+ls
+cd src/
+ls
+git clone https://github.com/ros-planning/moveit_tutorials.git
+source /opt/ros/indigo/setup.bash 
+rosdep install --from-paths . --ignore-src --rosdistro indigo
+cd ..
+catkin_make
+make build
+ls
+catkin_init_workspace 
+catkin_init_workspace rospy roscpp std_msgs genmsg
+roslaunch moveit_tutorials move_group_interface_tutorial.launch
+source /opt/ros/indigo/setup.bash 
+roslaunch moveit_tutorials move_group_interface_tutorial.launch
+apt-cache search moveit_tutorials
+sudo apt-get install ros-indigo-pr2-moveit-tutorials
+source /opt/ros/indigo/setup.bash 
+roscp moveit_tutorials
+roslaunch moveit_tutorials move_group_interface_tutorial.launch
+roscd moveit_tutorials
+apt-get install catkin
+apt-cache search catkin
+sudo apt-get install ros-indigo-catkin
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" > /etc/apt/sources.list.d/ros-latest.list'
+wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+sudo apt-get install wget
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" > /etc/apt/sources.list.d/ros-latest.list'
+wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install python-catkin-tools
+ls
+cd src/
+ls
+cd moveit_tutorials/
+ls
+cd ..
+rosdep install --from-paths . --ignore-src --rosdistro kinetic
+rosdep install --from-paths . --ignore-src --rosdistro indigo
+catkin build/
+catkin build
+ls
+rm -Rf build/ devel/
+ls
+catkin build
+ls
+source devel/setup.bash 
+ls
+roslaunch moveit_tutorials move_group_interface_tutorial.launch
+roscd moveit_tutorials
+ls
+cd doc/
+sl
+ls
+cd ..
+ls
+cd _scripts/
+ls
+cd ..
+ls
+cd _s
+ls
+cd
+ls
+roslaunch moveit_tutorials move_group_interface_tutorial.launch
+cd moveit_ws/
+sl
+ls
+rosdep install --from-paths . --ignore-src --rosdistro kinetic
+catkin build
+rosdep install --from-paths . --ignore-src --rosdistro indigo
+catkin build
+exit
+ls
+cd
+ls
+roslaunch pr2_moveit_config demo.launch
+roslaunch pr2_moveit_config demo.launch#
+roslaunch pr2_moveit_config demo.launch
+eixt
+exit
+ls
+clear
+cd
+ls
+roslaunch pr2_moveit_config demo.launch
+docker run -it --name sgs -p 8080:8080 -p 8888:8888 -p 8181:8181 -p 7681:7681 shadowrobot/smart_grasping_sandbox
+exit

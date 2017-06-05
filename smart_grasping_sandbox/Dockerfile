@@ -44,7 +44,6 @@ RUN cd /root && \
     cd c9sdk && \
     scripts/install-sdk.sh && \
     sed -i -e 's_127.0.0.1_0.0.0.0_g' /root/c9sdk/configs/standalone.js
-    
 
 RUN apt-get remove -y python-pip && \
     wget https://bootstrap.pypa.io/get-pip.py && \
@@ -54,7 +53,7 @@ RUN apt-get remove -y python-pip && \
     jupyter contrib nbextension install --system --symlink && \
     mkdir -p /root/.jupyter && \
     jupyter nbextension enable toc2/main
-    
+
 COPY jupyter_notebook_config.py /root/.jupyter/
 
 RUN apt-get remove -y python-pip && \
@@ -68,7 +67,7 @@ RUN rm -rf /var/lib/apt/lists/*
 # setup entrypoint
 COPY ./entrypoint.sh /
 
-ENTRYPOINT ["/entrypoint.sh"]
+#ENTRYPOINT ["/entrypoint.sh"]
 CMD ["bash"]
 
 EXPOSE 8080 8888 7681

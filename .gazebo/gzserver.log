@@ -1,25 +1,25 @@
-[1496421161 196973317] Gazebo multi-robot simulator, version 2.2.3
+[1496656854 947403794] Gazebo multi-robot simulator, version 2.2.3
 Copyright (C) 2012-2014 Open Source Robotics Foundation.
 Released under the Apache 2 License.
 http://gazebosim.org
 
 
-[1496421161 781646836] Init world[default]
-[1496421162 152075323] applying Gaussian noise model with mean 0 and stddev 0.01
-[1496421162 472136368] ODE body for link [mybot::left_wheel] does not exist, unable to SetEnabled
-[1496421162 472181368] ODE body for link [mybot::chassis] does not exist, unable to SetEnabled
-[1496421162 472617660] ODE body for link [mybot::right_wheel] does not exist, unable to SetEnabled
-[1496421162 472658035] ODE body for link [mybot::chassis] does not exist, unable to SetEnabled
-[1496421162 472702910] ODE body for link [mybot::chassis] does not exist, GetGravityMode returns default of 0
-[1496421162 472729869] ODE body for link [mybot::chassis] does not exist, GetKinematic returns default of 0
-[1496421162 472747827] ODE body for link [mybot::chassis] does not exist, GetEnabled returns default of 1
-[1496421162 535178909] ODE body for link [mybot::left_wheel] does not exist, GetGravityMode returns default of 0
-[1496421162 535196867] ODE body for link [mybot::left_wheel] does not exist, GetKinematic returns default of 0
-[1496421162 535268742] ODE body for link [mybot::left_wheel] does not exist, GetEnabled returns default of 1
-[1496421162 535655868] ODE body for link [mybot::right_wheel] does not exist, GetGravityMode returns default of 0
-[1496421162 535682910] ODE body for link [mybot::right_wheel] does not exist, GetKinematic returns default of 0
-[1496421162 535705410] ODE body for link [mybot::right_wheel] does not exist, GetEnabled returns default of 1
-[1496421162 535876743] ODE body for link [mybot::chassis] does not exist, unable to respond to OnPoseChange
-[1496421162 535899243] ODE body for link [mybot::left_wheel] does not exist, unable to respond to OnPoseChange
-[1496421162 535926160] ODE body for link [mybot::right_wheel] does not exist, unable to respond to OnPoseChange
-[1496421162 710949890] The link mybot::chassis has unrealistic inertia, unable to visualize box of equivalent inertia.
+[1496656855 448240431] Init world[default]
+[1496656855 836065664] applying Gaussian noise model with mean 0 and stddev 0.01
+[1496656856 198057727] ODE body for link [mybot::left_wheel] does not exist, unable to SetEnabled
+[1496656856 198073560] ODE body for link [mybot::chassis] does not exist, unable to SetEnabled
+[1496656856 198244518] ODE body for link [mybot::right_wheel] does not exist, unable to SetEnabled
+[1496656856 198253476] ODE body for link [mybot::chassis] does not exist, unable to SetEnabled
+[1496656856 198272268] ODE body for link [mybot::chassis] does not exist, GetGravityMode returns default of 0
+[1496656856 198281226] ODE body for link [mybot::chassis] does not exist, GetKinematic returns default of 0
+[1496656856 198290226] ODE body for link [mybot::chassis] does not exist, GetEnabled returns default of 1
+[1496656856 201222759] ODE body for link [mybot::left_wheel] does not exist, GetGravityMode returns default of 0
+[1496656856 201236259] ODE body for link [mybot::left_wheel] does not exist, GetKinematic returns default of 0
+[1496656856 201245301] ODE body for link [mybot::left_wheel] does not exist, GetEnabled returns default of 1
+[1496656856 201263300] ODE body for link [mybot::right_wheel] does not exist, GetGravityMode returns default of 0
+[1496656856 201272300] ODE body for link [mybot::right_wheel] does not exist, GetKinematic returns default of 0
+[1496656856 201285759] ODE body for link [mybot::right_wheel] does not exist, GetEnabled returns default of 1
+[1496656856 201377508] ODE body for link [mybot::chassis] does not exist, unable to respond to OnPoseChange
+[1496656856 201407300] ODE body for link [mybot::left_wheel] does not exist, unable to respond to OnPoseChange
+[1496656856 201437008] ODE body for link [mybot::right_wheel] does not exist, unable to respond to OnPoseChange
+[1496656856 636059268] The link mybot::chassis has unrealistic inertia, unable to visualize box of equivalent inertia.
