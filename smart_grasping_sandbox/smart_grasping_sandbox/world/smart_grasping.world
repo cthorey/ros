@@ -1,8 +1,11 @@
 <sdf version='1.6'>
   <world name='default'>
     <gravity>0 0 -9.8</gravity>
+
     <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+
     <atmosphere type='adiabatic'/>
+
     <physics type="ode">
       <gravity>0.000000 0.000000 -9.810000</gravity>
       <ode> 
@@ -20,11 +23,13 @@
         </constraints> 
       </ode> 
     </physics>
+
     <scene>
       <ambient>0.4 0.4 0.4 1</ambient>
       <background>0.7 0.7 1 1</background>
       <shadows>1</shadows>
     </scene>
+
     <spherical_coordinates>
       <surface_model>EARTH_WGS84</surface_model>
       <latitude_deg>0</latitude_deg>
@@ -32,6 +37,7 @@
       <elevation>0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
+
     <model name='cafe_table'>
       <static>1</static>
       <link name='link'>
@@ -111,6 +117,7 @@
       </link>
       <pose frame=''>-0.168004 0.136981 0 0 -0 0</pose>
     </model>
+
     <model name='drill'>
       <link name='link'>
         <inertial>
@@ -164,6 +171,8 @@
       </link>
       <pose frame=''>-0.472191 0.158603 0.772337 0.000673 -0.000771 1e-06</pose>
     </model>
+
+
     <model name='cricket_ball'>
       <link name='link'>
         <pose frame=''>0 0 0.0375 0 -0 0</pose>
@@ -230,6 +239,8 @@
       </link>
       <pose frame=''>0.15003 -5.5e-05 0.82 0.003644 -0.00082 0.000309</pose>
     </model>
+
+
     <light name='user_spot_light_0' type='spot'>
       <pose frame=''>-0.614545 -0.753038 2.0714 0.392405 -0 0</pose>
       <diffuse>0.7 0.5 0.2 1</diffuse>
@@ -248,6 +259,8 @@
         <falloff>1</falloff>
       </spot>
     </light>
+
+
     <state world_name='default'>
       <sim_time>0 0</sim_time>
       <real_time>0 0</real_time>
@@ -269,6 +282,8 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
+
+
       <model name='cafe_table'>
         <pose frame=''>-0.168004 0.136981 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -279,6 +294,8 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
+
+
       <model name='cricket_ball'>
         <pose frame=''>0.15003 -5.5e-05 0.82 0.003644 -0.00082 0.000309</pose>
         <scale>1 1 1</scale>
@@ -289,6 +306,8 @@
           <wrench>0.000461 0.026397 -0.03765 0 -0 0</wrench>
         </link>
       </model>
+
+
       <model name='drill'>
         <pose frame=''>-0.472191 0.158603 0.772337 0.000673 -0.000771 1e-06</pose>
         <scale>1 1 1</scale>
@@ -299,6 +318,8 @@
           <wrench>-0.399155 0.120353 -0.001171 0 -0 0</wrench>
         </link>
       </model>
+
+
       <model name='kinect'>
         <pose frame=''>1.35931 0.242068 1.04639 0 0 -2.6122</pose>
         <scale>1 1 1</scale>
@@ -309,6 +330,8 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
+
+
       <model name='unit_box'>
         <pose frame=''>0.086297 0.252686 -0.007724 0 -0 0</pose>
         <scale>3.65051 3.35986 0.01483</scale>
@@ -319,6 +342,8 @@
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
       </model>
+
+
       <model name='unit_cylinder'>
         <pose frame=''>1.40569 0.25378 0.5 0 -0 0</pose>
         <scale>0.1393 0.1393 1</scale>
@@ -329,12 +354,17 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
+
+
       <light name='user_directional_light_0'>
         <pose frame=''>0 0 3 0 -0 0</pose>
       </light>
+
+
       <light name='user_spot_light_0'>
         <pose frame=''>-0.614545 -0.753038 2.0714 0.392405 -0 0</pose>
       </light>
+
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
@@ -343,6 +373,7 @@
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
+
     <light name='user_directional_light_0' type='directional'>
       <pose frame=''>0 0 3 0 -0 0</pose>
       <diffuse>0.9 0.85 0.8 1</diffuse>
@@ -356,6 +387,7 @@
       </attenuation>
       <cast_shadows>1</cast_shadows>
     </light>
+
     <model name='building'>
       <pose frame=''>0.25 0.18 0 0 -0 0</pose>
       <link name='Wall_1'>
@@ -378,6 +410,7 @@
             <layer>0</layer>
           </meta>
         </visual>
+
         <collision name='Wall_1_Collision_0'>
           <geometry>
             <box>
@@ -399,6 +432,7 @@
             </friction>
           </surface>
         </collision>
+
         <visual name='Wall_1_Visual_1'>
           <pose frame=''>0.4475 0 0.25 0 -0 0</pose>
           <geometry>
@@ -417,6 +451,7 @@
             <layer>0</layer>
           </meta>
         </visual>
+
         <collision name='Wall_1_Collision_1'>
           <geometry>
             <box>
@@ -438,6 +473,7 @@
             </friction>
           </surface>
         </collision>
+
         <visual name='Wall_1_Visual_2'>
           <pose frame=''>1.3175 0 1.5 0 -0 0</pose>
           <geometry>
@@ -456,6 +492,7 @@
             <layer>0</layer>
           </meta>
         </visual>
+
         <collision name='Wall_1_Collision_2'>
           <geometry>
             <box>
@@ -682,6 +719,7 @@
       </link>
       <static>1</static>
     </model>
+
     <model name='floor'>
       <static>1</static>
       <pose frame=''>0.0 0.0 -0.025 0 0 0</pose>
@@ -735,6 +773,7 @@
         <kinematic>0</kinematic>
       </link>
     </model>
+
     <model name='kinect'>
       <static>1</static>
       <pose frame=''>1.35931 0.242068 1.04639 0 0 -2.6122</pose>
@@ -778,7 +817,8 @@
             </mesh>
           </geometry>
         </visual>
-        <sensor name='camera' type='depth'>
+
+        <sensor name='kinect_camera' type='depth'>
           <update_rate>20</update_rate>
           <camera name='__default__'>
             <horizontal_fov>1.0472</horizontal_fov>
@@ -792,11 +832,35 @@
               <far>3</far>
             </clip>
           </camera>
+          <plugin name="kinect_controller" filename="libgazebo_ros_openni_kinect.so">
+            <baseline>0.2</baseline>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>1.0</updateRate>
+            <cameraName>kinect_canera_ir</cameraName>
+            <imageTopicName>/kinect_camera/depth/image_raw</imageTopicName>
+            <cameraInfoTopicName>/kinect_camera/depth/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/kinect_camera/depth/image_raw</depthImageTopicName>
+            <depthImageInfoTopicName>/kinect_camera/depth/camera_info</depthImageInfoTopicName>
+            <pointCloudTopicName>/kinect_camera/depth/points</pointCloudTopicName>
+            <frameName>kinect_frame</frameName>
+            <pointCloudCutoff>0.5</pointCloudCutoff>
+            <distortionK1>0.00000001</distortionK1>
+            <distortionK2>0.00000001</distortionK2>
+            <distortionK3>0.00000001</distortionK3>
+            <distortionT1>0.00000001</distortionT1>
+            <distortionT2>0.00000001</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+          </plugin>
         </sensor>
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
       </link>
     </model>
+
     <model name='kinect_pilar'>
       <static>1</static>
       <pose frame=''>1.39 0.242 0.5 0 -0 0</pose>
@@ -852,6 +916,7 @@
         <kinematic>0</kinematic>
       </link>
     </model>
+
     <model name='robot_pilar'>
       <static>1</static>
       <pose frame=''>0.0 -1.0 0.5 0 -0 0</pose>
@@ -907,7 +972,5 @@
         <kinematic>0</kinematic>
       </link>
     </model>
-
-
   </world>
 </sdf>

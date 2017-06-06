@@ -48,3 +48,4 @@
   <node name="spawn_hand_controller" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="--shutdown-timeout=1.0 --timeout=360.0 hand_controller" />
 
 </launch>
+
