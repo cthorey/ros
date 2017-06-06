@@ -777,7 +777,7 @@
     <model name='kinect'>
       <static>1</static>
       <pose frame=''>1.35931 0.242068 1.04639 0 0 -2.6122</pose>
-      <link name='link'>
+      <link name='kinect_link'>
         <inertial>
           <mass>0.1</mass>
           <inertia>
@@ -842,7 +842,7 @@
             <depthImageTopicName>/kinect_camera/depth/image_raw</depthImageTopicName>
             <depthImageInfoTopicName>/kinect_camera/depth/camera_info</depthImageInfoTopicName>
             <pointCloudTopicName>/kinect_camera/depth/points</pointCloudTopicName>
-            <frameName>kinect_frame</frameName>
+            <frameName>kinect_camera</frameName>
             <pointCloudCutoff>0.5</pointCloudCutoff>
             <distortionK1>0.00000001</distortionK1>
             <distortionK2>0.00000001</distortionK2>
