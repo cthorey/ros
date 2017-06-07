@@ -837,8 +837,8 @@
             <alwaysOn>true</alwaysOn>
             <updateRate>1.0</updateRate>
             <cameraName>kinect_canera_ir</cameraName>
-            <imageTopicName>/kinect_camera/depth/image_raw</imageTopicName>
-            <cameraInfoTopicName>/kinect_camera/depth/camera_info</cameraInfoTopicName>
+            <imageTopicName>/kinect_camera/image_raw</imageTopicName>
+            <cameraInfoTopicName>/kinect_camera/camera_info</cameraInfoTopicName>
             <depthImageTopicName>/kinect_camera/depth/image_raw</depthImageTopicName>
             <depthImageInfoTopicName>/kinect_camera/depth/camera_info</depthImageInfoTopicName>
             <pointCloudTopicName>/kinect_camera/depth/points</pointCloudTopicName>

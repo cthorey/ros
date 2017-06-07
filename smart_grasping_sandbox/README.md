@@ -1,7 +1,3 @@
-| Check  | Status |
-|---------------|--------|
-| Docker | [![Docker Automated build](https://img.shields.io/docker/automated/shadowrobot/smart_grasping_sandbox.svg)](https://hub.docker.com/r/shadowrobot/smart_grasping_sandbox) |
-| Landscape | [![Code Health](https://landscape.io/github/shadow-robot/smart_grasping_sandbox/master/landscape.svg?style=flat)](https://landscape.io/github/shadow-robot/smart_grasping_sandbox/master) |
 
 # smart_grasping_sandbox
 
@@ -17,31 +13,28 @@ This stack contains:
 
 ## Getting started
 
-The fastest way to get started is using Docker. If you haven't done so already head over to the [Docker website](https://www.docker.com/) and follow the instructions over there. Once installed you can simply fire up the pre-built Docker container (it will be downloaded automatically for you):
+# setup
 
 ```
-docker run -it --name sgs -p 8080:8080 -p 8888:8888 -p 8181:8181 -p 7681:7681 shadowrobot/smart_grasping_sandbox
+      docker run -it --name sgs -p 8080:8080 -p 8888:8888 -p 8181:8181 -p 7681:7681 -e DISPLAY=$DISPLAY -e QT_X11_NO_MITSHM=1  -v /tmp/.X11-unix:/tmp/.X11-unix:rw -v $PWD/fh_desc:/workspace/fh_desc -v $PWD/smart_grasp_moveit_config:/workspace/smart_grasp_moveit_config -v $PWD/smart_grasping_sandbox:/workspace/smart_grasping_sandbox -v /home/cthorey/.bashrc:/workspace/.bashrc shadowrobot/smart_grasping_sandbox
 ```
 
-Then connect your local browser to [localhost:8080](http://localhost:8080) to see the simulation and [localhost:8888](http://localhost:8888) to get access to an ipython notebook which you can tinker with. The password for the ipython notebook is `shadow`.
+## general package struct
 
-The [ipython notebook](http://localhost:8888) contains an example of interaction with the sandbox to help you get started. If you want to check which functions are available in the `SmartGrasper` helper library, you can run from python:
+- Check this [link](http://answers.ros.org/question/192723/cant-find-python-scripts-after-sourcing/)
 
-```python
-from smart_grasping_sandbox.smart_grasper import SmartGrasper
-help(SmartGrasper)
-```
+## python recommendation
 
-## Restarting the container
+- DONT FORGET TO CHANGE THE PERSMISSION ON PYTHON FILE
+- PUT your module in the src folder follozing standard formatting
+- Dont forget to change the permission
+- Add the catkin_python_setup() to your CMakesList.txt file
 
-The next time you want to restart this container you just have to run:
+## PCL 
 
-```
-docker start sgs
-```
+- [pcl2rgb](http://library.isr.ist.utl.pt/docs/roswiki/pcl_ros(2f)Tutorials(2f)CloudToImage.html)
 
-And you will be able to connect to [localhost:8080](http://localhost:8080) and [localhost:8888](http://localhost:8888) again.
+## links
 
-## More advanced use
-
-A Cloud9IDE editor is also available for the more advanced user on [localhost:8181](http://localhost:8181).
+- [tutorial head tracker](http://www.pirobot.org/blog/0018/)
+- if you dont want to use catkin build, do catkin clean, catkin_make
