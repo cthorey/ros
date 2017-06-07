@@ -33,9 +33,11 @@ This stack contains:
 ## PCL 
 
 - [pcl2rgb](http://library.isr.ist.utl.pt/docs/roswiki/pcl_ros(2f)Tutorials(2f)CloudToImage.html)
+- [depth_image_proc](http://library.isr.ist.utl.pt/docs/roswiki/depth_image_proc.html)
 
 ## links
 
+- [Frame of reference ROS](https://docs.google.com/presentation/d/1T4A_LosDlLmPMybKdU-quvhJqELOMVAMZCkzqm2Mctc/edit#slide=id.g1d38f50ea_278)
 - [tutorial head tracker](http://www.pirobot.org/blog/0018/)
 - if you dont want to use catkin build, do catkin clean, catkin_make
 - [Circle detector](http://scikit-image.org/docs/dev/auto_examples/edges/plot_circular_elliptical_hough_transform.html)

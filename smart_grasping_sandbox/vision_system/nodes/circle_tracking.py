@@ -8,6 +8,7 @@ from vision_system.detector import CircleDetector
 
 def run_my_node():
     detector = CircleDetector()
+    detector.ts.registerCallback(detector.callback)
     rospy.init_node('circle_tracking', anonymous=True)
     try:
         rospy.spin()
