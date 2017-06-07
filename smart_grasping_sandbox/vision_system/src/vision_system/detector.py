@@ -5,8 +5,9 @@ import sys
 import rospy
 import cv2
 from std_msgs.msg import String
-from sensor_msgs.msg import Image
+from sensor_msgs.msg import Image, CameraInfo
 from geometry_msgs.msg import Point
+import image_geometry
 from cv_bridge import CvBridge, CvBridgeError
 import message_filters
 import numpy as np
@@ -32,6 +33,16 @@ class CircleDetector(object):
 
         self.ts = message_filters.TimeSynchronizer(
             [self.image_sub, self.depth_sub], 10)
+
+        self.camera_model = image_geometry.PinholeCameraModel()
+        self.cam_info = rospy.Subscriber(
+            "/kinect_camera/camera_info",
+            CameraInfo,
+            self.init_camera,
+            queue_size=6)
+
+    def init_camera(self, data):
+        self.camera_model.fromCameraInfo(data)
 
     def process_img(self, img_data):
         cimg = self.bridge.imgmsg_to_cv2(img_data, "bgr8")
@@ -73,9 +84,11 @@ class CircleDetector(object):
             raise Exception
         try:
             self.image_pub.publish(self.bridge.cv2_to_imgmsg(cimg, "bgr8"))
-            p = Point(x, y, d)
+            p = self.camera_model.projectPixelTo3dRay([x, y])
+            p = map(lambda a: d * a, p)
+            p = Point(*p)
             self.point_sub.publish(p)
-            print('Successfully publish {},{},{}'.format(x, y, d))
+            print('Successfully publish', p)
         except CvBridgeError as e:
             print(e)
             raise Exception

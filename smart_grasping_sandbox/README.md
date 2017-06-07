@@ -32,6 +32,7 @@ This stack contains:
 
 ## PCL 
 
+- [pixel 2 PCL](http://docs.ros.org/api/image_geometry/html/python/)
 - [pcl2rgb](http://library.isr.ist.utl.pt/docs/roswiki/pcl_ros(2f)Tutorials(2f)CloudToImage.html)
 - [depth_image_proc](http://library.isr.ist.utl.pt/docs/roswiki/depth_image_proc.html)
 
