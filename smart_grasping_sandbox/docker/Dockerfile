@@ -1,4 +1,5 @@
 FROM shadowrobot/smart_grasping_sandbox
+RUN pip install scikit-image pillow
 
 ENTRYPOINT [""]
 CMD ["/bin/bash"]

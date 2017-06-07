@@ -8,6 +8,11 @@ from std_msgs.msg import String
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 import numpy as np
+from skimage import data, color
+from skimage.transform import hough_circle, hough_circle_peaks
+from skimage.feature import canny
+from skimage.draw import circle_perimeter
+from skimage.util import img_as_ubyte
 
 
 class CircleDetector(object):
@@ -25,33 +30,33 @@ class CircleDetector(object):
             cimg = cv2.medianBlur(cimg, 5)
             ori = cimg
 
-            #threshold processed
+            #threshold img
             hsv = cv2.cvtColor(cimg, cv2.COLOR_BGR2HSV)
             lower_red = np.array([0, 100, 100])
             upper_red = np.array([10, 255, 255])
             mask = cv2.inRange(hsv, lower_red, upper_red)
-            circles = cv2.HoughCircles(mask, cv2.HOUGH_GRADIENT, 1,
-                                       int(cimg.shape[0] / 8.0), 20)
-            mask2 = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
-            # ensure at least some circles were found
-            print('circle', circles)
-            if circles is not None:
-                # convert the (x, y) coordinates and radius of the circles to integers
-                circles = np.uint16(np.around(circles.astype('float')))
-                circles = np.round(circles[0, :].astype('float')).astype("int")
-                # loop over the (x, y) coordinates and radius of the circles
-                for (x, y, r) in circles:
-                    # draw the circle in the output image, then draw a rectangle
-                    # corresponding to the center of the circle
-                    cv2.circle(cimg, (x, y), r, (0, 255, 0), 4)
-                    cv2.rectangle(cimg, (x - 5, y - 5), (x + 5, y + 5),
-                                  (0, 128, 255), -1)
+
+            # detect edges
+            edges = canny(mask, sigma=3, low_threshold=10, high_threshold=50)
+            # Detect two radii
+            hough_radii = np.arange(20, 35, 2)
+            hough_res = hough_circle(edges, hough_radii)
+
+            # Select the most prominent 5 circles
+            accums, cx, cy, radii = hough_circle_peaks(
+                hough_res, hough_radii, total_num_peaks=1)
+            for center_y, center_x, radius in zip(cy, cx, radii):
+                circy, circx = circle_perimeter(center_y, center_x, radius)
+                cimg[circy, circx] = (220, 20, 20)
+
+            print(cx, cy)
             print('Successfully process image')
+
         except CvBridgeError as e:
             print(e)
             raise Exception
         try:
-            self.image_pub.publish(self.bridge.cv2_to_imgmsg(mask2, "bgr8"))
+            self.image_pub.publish(self.bridge.cv2_to_imgmsg(cimg, "bgr8"))
         except CvBridgeError as e:
             print(e)
             raise Exception

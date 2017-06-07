@@ -38,3 +38,4 @@ This stack contains:
 
 - [tutorial head tracker](http://www.pirobot.org/blog/0018/)
 - if you dont want to use catkin build, do catkin clean, catkin_make
+- [Circle detector](http://scikit-image.org/docs/dev/auto_examples/edges/plot_circular_elliptical_hough_transform.html)
