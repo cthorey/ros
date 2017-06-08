@@ -73,20 +73,32 @@ class CircleDetector(object):
         cdepth = self.bridge.imgmsg_to_cv2(depth_data, "passthrough")
         return cdepth[cy, cx]
 
+    def pixel2xyz(self, u, v, d):
+        """
+        See this for the detail
+        http://answers.ros.org/question/120126/conversion-of-depht-image-coordinates-to-world-coordinates-uvd-to-xyz/
+        """
+        # pixel 2 normalized ray pointing toward the object
+        p = self.camera_model.projectPixelTo3dRay([u, v])
+        assert np.abs(np.sqrt(np.sum(np.array(p)**2)) -
+                      1) < 1e-6, 'Not normalized'
+        # Multiply by d to get the x,y,z relative to the camera frame
+        p = map(lambda a: d * a, p)
+        p = Point(*p)
+        return p
+
     def callback(self, img_data, depth_data):
         try:
             cimg, cx, cy = self.process_img(img_data)
-            x = cx[0]
-            y = cy[0]
-            d = self.get_depth(depth_data, x, y)
+            u = cx[0]
+            v = cy[0]
+            d = self.get_depth(depth_data, u, v)
         except CvBridgeError as e:
             print(e)
             raise Exception
         try:
             self.image_pub.publish(self.bridge.cv2_to_imgmsg(cimg, "bgr8"))
-            p = self.camera_model.projectPixelTo3dRay([x, y])
-            p = map(lambda a: d * a, p)
-            p = Point(*p)
+            p = self.pixel2xyz(u, v, d)
             self.point_sub.publish(p)
             print('Successfully publish', p)
         except CvBridgeError as e:
