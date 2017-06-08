@@ -50,10 +50,51 @@ needed to be modified as appropriate:
 At the end, after running xquartz, run the container using
 
 ```
-    ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
+    ip=$(ifconfig en0 | gresource /workspacep inet | awk '$1=="inet" {print $2}')
     xhost + $ip
     docker run -e DISPLAY=$ip:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v $PWD:/root  ros
 ```
+
+### Setup demo
+
+1. Launch the container
+
+```
+docker run -it --name sgs -p 8080:8080 -p 8888:8888 -p 8181:8181 -p 7681:7681 -e DISPLAY=$DISPLAY -e QT_X11_NO_MITSHM=1  -v /tmp/.X11-unix:/tmp/.X11-unix:rw -v $PWD/fh_desc:/workspace/src/fh_desc -v $PWD/smart_grasp_moveit_config:/workspace/src/smart_grasp_moveit_config -v $PWD/vision_system:/workspace/src/vision_system -v $PWD/smart_grasping_sandbox:/workspace/src/smart_grasping_sandbox -v /home/cthorey/.bashrc:/workspace/.bashrc ros:sandbox bash
+```
+
+2. Source the bashfile
+
+```
+source /workspace/.bashrc
+source /workspace/devel/setup.bash
+```
+
+3. Build the vision_system, go in to /workspace and run
+
+```catkin build ```
+
+4. Source the file as well devel/setup.bash
+5. Launch the main stuff
+
+```
+roslaunch smart_grasping_sandbox smart_grasping_sandbox.launch
+```
+
+6. Exec into the container from a new terminal
+
+```
+docker exec -it sgs bash
+```
+
+7. Repeat step 2 and then launch the vision system
+
+```
+rosrun vision_system circle_tracking.py
+```
+
+8. Go into the notebook and try different things
+
 
 ### linux user
 
