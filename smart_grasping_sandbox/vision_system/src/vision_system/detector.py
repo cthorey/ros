@@ -4,8 +4,11 @@ import roslib
 import sys
 import rospy
 import cv2
+import tf
+
 from std_msgs.msg import String
 from sensor_msgs.msg import Image, CameraInfo
+from geometry_msgs.msg import PointStamped
 from geometry_msgs.msg import Point
 import image_geometry
 from cv_bridge import CvBridge, CvBridgeError
@@ -19,13 +22,18 @@ from skimage.util import img_as_ubyte
 
 
 class CircleDetector(object):
-    def __init__(self):
+    def __init__(self, frame_to='kinect_frame'):
+        self.frame_to = frame_to
+
+        #init publisher
         self.image_pub = rospy.Publisher(
             "/vision/processed_image", Image, queue_size=5)
         self.point_sub = rospy.Publisher(
-            "/vision/bowl_center", Point, queue_size=5)
+            "/vision/bowl_center", PointStamped, queue_size=5)
 
         self.bridge = CvBridge()
+
+        #init suscriber
         self.image_sub = message_filters.Subscriber("/kinect_camera/image_raw",
                                                     Image)
         self.depth_sub = message_filters.Subscriber(
@@ -34,6 +42,7 @@ class CircleDetector(object):
         self.ts = message_filters.TimeSynchronizer(
             [self.image_sub, self.depth_sub], 10)
 
+        # camera model
         self.camera_model = image_geometry.PinholeCameraModel()
         self.cam_info = rospy.Subscriber(
             "/kinect_camera/camera_info",
@@ -41,8 +50,13 @@ class CircleDetector(object):
             self.init_camera,
             queue_size=6)
 
+        # tf transform
+        self.frame = 'kinect_frame'
+        self.tf = tf.TransformListener()
+
     def init_camera(self, data):
         self.camera_model.fromCameraInfo(data)
+        self.frame = self.camera_model.tfFrame()
 
     def process_img(self, img_data):
         cimg = self.bridge.imgmsg_to_cv2(img_data, "bgr8")
@@ -85,9 +99,16 @@ class CircleDetector(object):
         # Multiply by d to get the x,y,z relative to the camera frame
         p = map(lambda a: d * a, p)
         p = Point(*p)
-        return p
+        ps = PointStamped(point=p)
+        ps.header.frame_id = self.camera_model.tfFrame()
+        ps.header.stamp = rospy.Time.now()
+        return ps
 
     def callback(self, img_data, depth_data):
+        self.tf.waitForTransform(self.frame, self.frame_to,
+                                 rospy.Time(), rospy.Duration(5.0))
+        self.tf.waitForTransform('base', 'base',
+                                 rospy.Time(), rospy.Duration(5.0))
         try:
             cimg, cx, cy = self.process_img(img_data)
             u = cx[0]
@@ -98,9 +119,13 @@ class CircleDetector(object):
             raise Exception
         try:
             self.image_pub.publish(self.bridge.cv2_to_imgmsg(cimg, "bgr8"))
-            p = self.pixel2xyz(u, v, d)
-            self.point_sub.publish(p)
-            print('Successfully publish', p)
+            # get xyz in the original frame (camera)
+            ps = self.pixel2xyz(u, v, d)
+            # transfo from that frame to the dest frame
+            ps = self.tf.transformPoint(self.frame_to, ps)
+            # publish the poitn
+            self.point_sub.publish(ps)
+            print('Successfully publish', ps)
         except CvBridgeError as e:
             print(e)
             raise Exception

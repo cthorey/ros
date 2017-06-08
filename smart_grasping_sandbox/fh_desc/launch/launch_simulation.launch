@@ -40,6 +40,8 @@
   <node name="world_to_arm_base" pkg="tf" type="static_transform_publisher" args="0 -1 1 0 0 0 world base_link 100" />
   <include file="$(find ur_gazebo)/launch/controller_utils.launch"/>
 
+  <node name="kinect_to_world" pkg="tf" type="static_transform_publisher" args="1.35931 0.242068 1.04639 0 0 -2.6122 world kinect_frame 100" />
+
   <rosparam file="$(find ur_gazebo)/controller/arm_controller_ur10.yaml" command="load"/>
   <param name="arm_controller/allow_partial_joints_goal" value="true"/>
   <node name="arm_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn arm_controller" respawn="false" output="screen"/>

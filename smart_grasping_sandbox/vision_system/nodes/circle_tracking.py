@@ -7,9 +7,9 @@ from vision_system.detector import CircleDetector
 
 
 def run_my_node():
-    detector = CircleDetector()
-    detector.ts.registerCallback(detector.callback)
     rospy.init_node('circle_tracking', anonymous=True)
+    detector = CircleDetector(frame_to='kinect_frame')
+    detector.ts.registerCallback(detector.callback)
     try:
         rospy.spin()
     except KeyboardInterrupt:

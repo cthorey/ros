@@ -1163,8 +1163,7 @@
     <mu2>1.5</mu2>
     <fdir1>1 0 0</fdir1>
     <maxVel>1.0</maxVel>
-    <minDepth>0.002</minDepth>
-    
+    <minDepth>0.002</minDepth>    
     <material>Gazebo/DarkGrey</material>
   </gazebo>
 
