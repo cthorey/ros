@@ -4,8 +4,10 @@ from gazebo_msgs.srv import GetModelState, SetModelConfiguration
 from controller_manager_msgs.srv import SwitchController, SwitchControllerRequest
 from moveit_msgs.msg import PlanningScene, PlanningSceneComponents
 from moveit_msgs.srv import GetPlanningScene
+from geometry_msgs.msg import Pose
 from moveit_commander import MoveGroupCommander
 from actionlib import SimpleActionClient
+from geometry_msgs.msg import PointStamped
 from control_msgs.msg import FollowJointTrajectoryAction, \
     FollowJointTrajectoryGoal
 from sensor_msgs.msg import JointState
@@ -91,6 +93,14 @@ class SmartGrasper(object):
             )
 
         self.reset_world()
+        self.target_sub = rospy.Subscriber(
+            "/vision/bowl_center",
+            PointStamped,
+            self.setup_target,
+            queue_size=6)
+
+    def setup_target(self, data):
+        self.ball_pose = data.point
 
     def reset_world(self):
         """
@@ -130,7 +140,13 @@ class SmartGrasper(object):
 
         @return The pose of the ball.
         """
-        return self.__get_pose_srv.call("cricket_ball", "world").pose
+        point = self.ball_pose
+        target = Pose()
+        print('hello')
+        target.position = point
+        target.orientation.w = 1
+        return target
+        # return self.__get_pose_srv.call("cricket_ball", "world").pose
 
     def get_tip_pose(self):
         """
@@ -349,8 +365,8 @@ class SmartGrasper(object):
         time.sleep(0.1)
 
         rospy.loginfo("Lifting")
-        for _ in range(50):
-            self.move_tip(y=0.001)
+        for _ in range(2):
+            self.move_tip(y=0.1)
             time.sleep(0.1)
 
         self.check_fingers_collisions(True)
